@@ -1,0 +1,53 @@
+ *Data Abstraction
+    Creates integer caseNumber for current test case, output purposes.
+    Creates integer numTestCases for number of test cases.
+    Creates integer numPairs to store the number of pairs in a test case.
+    Creates double delta for the max distance between points to be a constellation.
+    Creates disjointSet dset to store sets of numbers, each corresponding to a point.
+    Creates array of Points points for storing x and y pair coordinates.
+    Creates integer MAX_STARS for allocation of the disjoint set.
+ *Input
+    Read in amount of test cases as an integer.
+    Read in number of pairs for a test case as an integer.
+    Read in delta as double for measuring distance between points.
+    Read in points as pairs of doubles in a x y coordinate setup.
+    Continue this process until all test cases are finished.
+ *Process/Implementation
+    User inputs amount of test cases for the program.  For each test case, the
+    user inputs an amount of stars and a max distance between stars to be a
+    constellation.  User then inputs the amount of stars as x y coordinate pairs.
+    
+    Program reads in n test cases, and begins to loop n test case times.
+    Program reads in amount of stars and a distance between stars.
+    Program begins to loop for the amount of stars, placing each one into an
+    array of points/coordinate pairs.
+    Program creates a disjoint set and initializes it to the amount of stars.
+    If there are 0 stars in the test case, the program will return 0 constellations.
+    Program loops from first coordinate pair to next to last coordinate pair in
+    the array.
+    While looping through each of the coordinate pairs, the program will
+    once again loop through the pair of coordinates in front of the outer loop.
+    This way, a coordinate pair is never checked twice against another pair.
+    The each point in the array will be compared to the next point in the array
+    up to the end point.
+    The program will check each coordinate pair to see if the distance between
+    the point of interest and the following points creates a constellation.
+    If the distance not greater than the program's inputted delta, the program
+    will check if the points are already in the same set.  If they points are not
+    in the same set, an union will be performed to place them in the same set.
+    This continues on until all except the last element of the outer loop have
+    performed the distance/in set check.  Afterwards, the program asks the
+    disjoint set to provide the number of constellations.  This is calculated by
+    checking which sets still have their own set number.  The program continues
+    this process until it runs out of test cases.
+ *Output
+    Case number corresponding to a test case,
+    followed by the amount of constellations found for that test case.
+ *Assumptions
+    Assumes the user follows all input methods in order, ie:
+    -#1- n test cases (n<=50)
+    -#2- n amount of stars (0<=n<=1000)
+    -#3- f distance (0.00<=f<=1000.00)
+    -#4- f x coordinate (-1000.00<=f<=1000.00)
+    -#5- f y coordinate (-1000.00<=f<=1000.00)
+    Any deviations from this input/order will output unexpected results.
